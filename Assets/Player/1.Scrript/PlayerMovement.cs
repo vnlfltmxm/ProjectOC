@@ -5,11 +5,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private Transform cameraLookAt;
+    [SerializeField] private Transform playerMesh;
+
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 300f;
     [SerializeField] private float mouseSensitivity = 2f;
-    [SerializeField] private Transform cameraLookAt;
-    [SerializeField] private Transform playerMesh;
+
 
     private Rigidbody rb;
 
@@ -30,15 +32,11 @@ public class PlayerMovement : MonoBehaviour
     public void OnMovement(InputAction.CallbackContext context)
     {
         moveDirection = context.ReadValue<Vector2>();
-
-        Movement();
     }
 
     public void OnCameraMove(InputAction.CallbackContext context)
     {
         mouseDelta = context.ReadValue<Vector2>();
-
-        LookAround();
     }
 
     private void Movement()
@@ -75,9 +73,19 @@ public class PlayerMovement : MonoBehaviour
         cameraLookAt.rotation = Quaternion.Euler(x, CameraAngle.y + mouseDelta.x, CameraAngle.z);
     }
 
+    private void Update()
+    {
+        LookAround();
+
+    }
+
     private void FixedUpdate()
     {
-        //LookAround();
-        //Movement();
+        Movement();
+    }
+
+    private void LateUpdate()
+    {
+                   
     }
 }
