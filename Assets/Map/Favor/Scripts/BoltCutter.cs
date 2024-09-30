@@ -12,6 +12,14 @@ public class BoltCutter : MonoBehaviour
             {
                 f.CutWire();
             }
+            if(other.TryGetComponent(out FruitTree ft))
+            {
+                ft.RipFruit();
+            }
+            else
+            {
+                Debug.LogError("과일나무랑 접촉하지 않음");
+            }
         }
     }
 }
