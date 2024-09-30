@@ -1160,8 +1160,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2127173768}
+  - component: {fileID: 2127173769}
   m_Layer: 0
-  m_Name: Terrains
+  m_Name: MapManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1189,6 +1190,28 @@ Transform:
   - {fileID: 580373439}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2127173769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127173767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4be4eae56329064f8ca888f35bafdf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hardZoneTerrainData: {fileID: 15600000, guid: 321523747a7073d4e9665e78f521e448, type: 2}
+  softZoneTerrainData: {fileID: 15600000, guid: db9c1b841d3f3a24e9b7486b01267568, type: 2}
+  dateZoneTerrainData: {fileID: 15600000, guid: b1f8a247f8e338f40a6aa8b0ec3fc90e, type: 2}
+  terrains:
+  - {fileID: 767069498}
+  - {fileID: 1982451978}
+  - {fileID: 116129700}
+  - {fileID: 1261179871}
+  - {fileID: 458651592}
+  - {fileID: 1977711197}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
