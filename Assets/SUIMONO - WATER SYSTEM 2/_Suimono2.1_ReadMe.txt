@@ -1,7 +1,7 @@
 ---------------------------------------------------
 SUIMONO - INTERACTIVE WATER SYSTEM for UNITY
 
-Copyright ©2021 Tanuki Digital
+Copyright ?021 Tanuki Digital
 Version 2.1.13
 ---------------------------------------------------
 
@@ -56,7 +56,7 @@ II. ADD THE SUIMONO PREFABS TO YOUR SCENE
 5) (NEW!) Go to your scene camera object and (if necessary) add the Underwater component by going to Component-->Image Effects-->Suimono-->UnderwaterFX
 
 
-That's it for the basic installation!  You can now position “SUIMONO_Surface” anywhere in your scene that you like, and even rename the “Suimono_Surface” object to anything you wish. This object can also be scaled to fit your scene, but please see the scale note below!
+That's it for the basic installation!  You can now position “SUIMONO_Surface?anywhere in your scene that you like, and even rename the “Suimono_Surface?object to anything you wish. This object can also be scaled to fit your scene, but please see the scale note below!
 More in depth installation and setup instructions, as well as a helpful FAQ can be found in the full documentation PDF, available here: http://tanukidigital.com/suimono/documentation
 
 A NOTE ABOUT UPGRADES:
@@ -68,7 +68,7 @@ It's recommended to delete your current Suimono scene objects, the suimono effec
 CUSTOMIZATION NOTES
 ----------------------------
 DEFINING YOUR SCENE CAMERA:
-Suimono tracks a scene camera in order to determine when to initiate the underwater switch. By default Suimono will track the scene camera object that has it’s object tag set to “MainCamera”. However, you can customize which camera Suimono tracks (under the module configuration tab) by changing the 'Camera Mode' to 'Manual Select Camera' and then adding your camera to the 'Scene Camera Object'”' attribute before running your scene.  If you're game is designed around a 3rd person controller, you'll want to designate your character object as the "Scene Track Object"... otherwise for most first-person games, the scene track object would be the same as the scene camera object.  If the scene track object is left vacant it Suimono will automatically set it to the scene camera object specified above.
+Suimono tracks a scene camera in order to determine when to initiate the underwater switch. By default Suimono will track the scene camera object that has it’s object tag set to “MainCamera? However, you can customize which camera Suimono tracks (under the module configuration tab) by changing the 'Camera Mode' to 'Manual Select Camera' and then adding your camera to the 'Scene Camera Object'? attribute before running your scene.  If you're game is designed around a 3rd person controller, you'll want to designate your character object as the "Scene Track Object"... otherwise for most first-person games, the scene track object would be the same as the scene camera object.  If the scene track object is left vacant it Suimono will automatically set it to the scene camera object specified above.
 
 
 
