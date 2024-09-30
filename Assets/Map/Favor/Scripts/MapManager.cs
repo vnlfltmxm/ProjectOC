@@ -25,14 +25,14 @@ public class MapManager : MonoBehaviour
         int softCount = 2;
         int hardCount = 2;
         int dateCount = 2;
-        for(int i = 0; i < terrains.Count; i++) 
+        for (int i = 0; i < terrains.Count; i++)
         {
             TerrainData data = null;
 
             while (softCount + hardCount + dateCount > 0)
             {
                 int temp = Random.Range(0, 3);
-                
+
                 switch (temp)
                 {
                     case 0:
@@ -53,13 +53,11 @@ public class MapManager : MonoBehaviour
                     default:
                         continue;
                 }
-                
                 terrains[i].terrainData = data;
                 terrains[i].GetComponent<TerrainCollider>().terrainData = terrains[i].terrainData;
                 break;
             }
-
-
+            
         }
     }
 }
