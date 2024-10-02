@@ -1508,6 +1508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Wire: {fileID: 4438843871872981417}
+  collision: {fileID: 2827655000305950083}
 --- !u!65 &2827655000305950083
 BoxCollider:
   m_ObjectHideFlags: 0
