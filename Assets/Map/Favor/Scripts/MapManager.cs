@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    [SerializeField] private TerrainData hardZoneTerrainData;
-    [SerializeField] private TerrainData softZoneTerrainData;
-    [SerializeField] private TerrainData dateZoneTerrainData;
+    
 
-    [SerializeField] private List<Terrain> terrains = new List<Terrain>(6);
+    [SerializeField] private List<Transform> zones = new List<Transform>();
+    [SerializeField] private List<Transform> areas = new List<Transform>();
 
     private void Update()
     {
@@ -22,42 +21,27 @@ public class MapManager : MonoBehaviour
 
     private void SetTerrainData()
     {
-        int softCount = 2;
-        int hardCount = 2;
-        int dateCount = 2;
-        for (int i = 0; i < terrains.Count; i++)
+        List<int> indexes = new List<int>();
+        Vector3 tempPos = new Vector3(0, 2.02f, 0);
+        foreach (Transform z in zones)
         {
-            TerrainData data = null;
-
-            while (softCount + hardCount + dateCount > 0)
+            int index = 0;
+            while (true)
             {
-                int temp = Random.Range(0, 3);
-
-                switch (temp)
+                index = Random.Range(0, areas.Count);
+                if (indexes.Contains(index))
                 {
-                    case 0:
-                        if (softCount == 0) continue;
-                        softCount--;
-                        data = softZoneTerrainData;
-                        break;
-                    case 1:
-                        if (hardCount == 0) continue;
-                        hardCount--;
-                        data = hardZoneTerrainData;
-                        break;
-                    case 2:
-                        if (dateCount == 0) continue;
-                        dateCount--;
-                        data = dateZoneTerrainData;
-                        break;
-                    default:
-                        continue;
+                    continue;
                 }
-                terrains[i].terrainData = data;
-                terrains[i].GetComponent<TerrainCollider>().terrainData = terrains[i].terrainData;
-                break;
+                else
+                {
+                    indexes.Add(index);
+                    break;
+                }
             }
-            
+            z.SetParent(areas[index]);
+
+            z.transform.localPosition = tempPos;
         }
     }
 }
