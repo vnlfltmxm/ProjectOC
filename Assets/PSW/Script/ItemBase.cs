@@ -4,11 +4,17 @@ using UnityEngine;
 
 public abstract class ItemBase : MonoBehaviour,IItem
 {
+    protected int ItemUID;
     protected new Rigidbody rigidbody;
 
     public virtual void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
+    }
+
+    public void SetItemUID(int itemUID)
+    {
+        ItemUID = itemUID;
     }
 
     public virtual void PickUpItem()
