@@ -61,4 +61,19 @@ public class ItemPoolmanger : MonoBehaviour
 
         return null;
     }
+
+    public void RemoveItem(string itemName, int UID)
+    {
+        if (itemPool.ContainsKey(itemName))
+        {
+            if (itemPool[itemName].ContainsKey(UID))
+            {
+                itemPool[itemName].Remove(UID);
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
 }
