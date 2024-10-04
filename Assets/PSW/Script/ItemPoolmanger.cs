@@ -49,8 +49,16 @@ public class ItemPoolmanger : MonoBehaviour
         //}
     }
 
-    public void AddItemInPool()
+    public GameObject GetItemInPool(string itemName,int UID)
     {
-        
+        if (itemPool.ContainsKey(itemName))
+        {
+            if (itemPool[itemName].ContainsKey(UID))
+            {
+                return itemPool[itemName][UID];
+            }
+        }
+
+        return null;
     }
 }
