@@ -411,7 +411,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 18
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7505607621725744385
 Transform:
@@ -451,11 +451,11 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 3006476721088689275}
-  - screenRelativeHeight: 0.999
+  - screenRelativeHeight: 0.6560822
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 9120550267958463573}
-  - screenRelativeHeight: 0.23352396
+  - screenRelativeHeight: 0.18059221
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 3272375160267056911}
