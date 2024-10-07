@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d4be4eae56329064f8ca888f35bafdf4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - hardZoneTerrainData: {fileID: 15600000, guid: 321523747a7073d4e9665e78f521e448, type: 2}
+  - softZoneTerrainData: {fileID: 15600000, guid: db9c1b841d3f3a24e9b7486b01267568, type: 2}
+  - dateZoneTerrainData: {fileID: 15600000, guid: b1f8a247f8e338f40a6aa8b0ec3fc90e, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
