@@ -1,13 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
-public class ItemPoolmanger : MonoBehaviour
+public class ItemPoolmanger : Singleton<ItemPoolmanger>
 {
+    
     [SerializeField]
     private GameObject[] prefabs;
 
-    private Dictionary<string, Dictionary<int, GameObject>> itemPool = new Dictionary<string, Dictionary<int, GameObject>>();
+    private Dictionary<string, Dictionary<int, GameObject>> EquipmentPool = new Dictionary<string, Dictionary<int, GameObject>>();
+    private Dictionary<string, Queue<GameObject>> FruitPool = new Dictionary<string, Queue<GameObject>>();
     // Start is called before the first frame update
     void Start()
     {
@@ -20,55 +24,100 @@ public class ItemPoolmanger : MonoBehaviour
         
     }
 
-
-    public void SetPool()
+    public void InitPool()
     {
-        //for (int i = 0; i < prefabs.Length; i++)
+        for (int i = 0; i < prefabs.Length; i++)
+        {
+            
+            //if (IsCheckItemTypeIsFruit(prefabs[i].name) == true)
+            //{
+            //    Queue<GameObject> tempQue = new Queue<GameObject>();
+            //    FruitPool.Add(prefabs[i].name, tempQue);
+            //}
+            //else
+            //{
+            //    Dictionary<int, GameObject> tempDic = new Dictionary<int, GameObject>();
+
+            //    EquipmentPool.Add(prefabs[i].name, tempDic);
+
+            //}
+
+            SetPool(i);
+        }
+    }
+
+    public void SetPool(int prefabsIndex)
+    {
+
+        
+        //if (IsCheckItemTypeIsFruit(prefabs[prefabsIndex].name) == true)
         //{
-        //    int index = 0;
-        //    for (int j = 0; j < DataManger.inst.GetItem(prefabs[i].name).count; j++)
+        //    for (int j = 0; j < DataManger.inst.GetItem(prefabs[prefabsIndex].name).count; j++)
         //    {
-        //        GameObject item = Instantiate(prefabs[i]);
-        //        item.SetActive(false); 
+        //        GameObject item = Instantiate(prefabs[prefabsIndex]);
+        //        item.SetActive(false);
 
-        //        int tempId = DataManger.inst.GetItem(prefabs[i].name).id + index;
+        //        FruitPool[prefabs[prefabsIndex].name].Enqueue(item);
 
-        //        if (itemPool.ContainsKey(prefabs[i].name) == false) 
-        //        {
-        //            Dictionary<int, GameObject> tempDic = new Dictionary<int, GameObject>();
-        //            tempDic.Add(tempId, item);
-        //            itemPool.Add(prefabs[i].name, tempDic);
-        //        }
-        //        else
-        //        {
-        //            itemPool[prefabs[i].name].Add(tempId, item);
-        //        }
-
-        //        index++;
         //    }
         //}
+        //else
+        //{
+        //    int index = 0;
+
+        //    //for (int j = 0; j < DataManger.inst.GetItem(prefabs[prefabsIndex].name).count; j++)
+        //    //{
+        //    //    GameObject item = Instantiate(prefabs[prefabsIndex]);
+        //    //    item.SetActive(false);
+
+        //    //    int tempId = DataManger.inst.GetItem(prefabs[prefabsIndex].name).id + index;
+
+
+
+        //    //    EquipmentPool[prefabs[prefabsIndex].name].Add(tempId, item);
+
+
+        //    //    index++;
+        //    //}
+        //}
+
+
     }
 
-    public GameObject GetItemInPool(string itemName,int UID)
-    {
-        if (itemPool.ContainsKey(itemName))
-        {
-            if (itemPool[itemName].ContainsKey(UID))
-            {
-                return itemPool[itemName][UID];
-            }
-        }
+    //public GameObject GetItemInPool(string itemName,int UID)
+    //{
+    //    //(Clone)날리는 부분 필요
 
-        return null;
-    }
+    //    if (IsCheckItemTypeIsFruit(itemName) == true)
+    //    {
+    //        if (FruitPool.ContainsKey(itemName))
+    //        {
+    //            return FruitPool[itemName].Dequeue();
+    //        }
+    //    }
+    //    else
+    //    {
+    //        if (EquipmentPool.ContainsKey(itemName))
+    //        {
+    //            if (EquipmentPool[itemName].ContainsKey(UID))
+    //            {
+    //                return EquipmentPool[itemName][UID];
+    //            }
+    //        }
+    //    }
+
+        
+
+    //    return null;
+    //}
 
     public void RemoveItem(string itemName, int UID)
     {
-        if (itemPool.ContainsKey(itemName))
+        if (EquipmentPool.ContainsKey(itemName))
         {
-            if (itemPool[itemName].ContainsKey(UID))
+            if (EquipmentPool[itemName].ContainsKey(UID))
             {
-                itemPool[itemName].Remove(UID);
+                EquipmentPool[itemName].Remove(UID);
             }
             else
             {
@@ -76,4 +125,6 @@ public class ItemPoolmanger : MonoBehaviour
             }
         }
     }
+
+    
 }
