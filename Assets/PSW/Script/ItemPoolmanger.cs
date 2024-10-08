@@ -49,7 +49,7 @@ public class ItemPoolmanger : Singleton<ItemPoolmanger>
     public void SetPool(int prefabsIndex)
     {
 
-        
+
         //if (IsCheckItemTypeIsFruit(prefabs[prefabsIndex].name) == true)
         //{
         //    for (int j = 0; j < DataManger.inst.GetItem(prefabs[prefabsIndex].name).count; j++)
@@ -83,20 +83,23 @@ public class ItemPoolmanger : Singleton<ItemPoolmanger>
 
 
     }
+    //public GameObject GetFruitInPool(string itemName)
+    //{
+    //      if (FruitPool.ContainsKey(itemName))
+    //        {
+    //            return FruitPool[itemName].Dequeue();
+    //        }
+    //    }
+    //    
+    //  
+
+    //    return null;
+    //}
 
     //public GameObject GetItemInPool(string itemName,int UID)
     //{
     //    //(Clone)날리는 부분 필요
 
-    //    if (IsCheckItemTypeIsFruit(itemName) == true)
-    //    {
-    //        if (FruitPool.ContainsKey(itemName))
-    //        {
-    //            return FruitPool[itemName].Dequeue();
-    //        }
-    //    }
-    //    else
-    //    {
     //        if (EquipmentPool.ContainsKey(itemName))
     //        {
     //            if (EquipmentPool[itemName].ContainsKey(UID))
@@ -104,9 +107,8 @@ public class ItemPoolmanger : Singleton<ItemPoolmanger>
     //                return EquipmentPool[itemName][UID];
     //            }
     //        }
-    //    }
 
-        
+
 
     //    return null;
     //}
@@ -126,5 +128,14 @@ public class ItemPoolmanger : Singleton<ItemPoolmanger>
         }
     }
 
-    
+    public void ReturnFruitInPool(GameObject item)
+    {
+        string itemName = DataManager.Instance.RemoveTextAfterParenthesis(item.name);
+
+        if (FruitPool.ContainsKey(itemName))
+        {
+            FruitPool[itemName].Enqueue(item);
+            item.SetActive(false);
+        }
+    }
 }
