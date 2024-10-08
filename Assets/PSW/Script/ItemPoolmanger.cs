@@ -83,20 +83,26 @@ public class ItemPoolmanger : Singleton<ItemPoolmanger>
 
 
     }
-
-    //public GameObject GetItemInPool(string itemName,int UID)
+    //public GameObject GetFruitInPool(string itemName)
     //{
     //    //(Clone)날리는 부분 필요
 
-    //    if (IsCheckItemTypeIsFruit(itemName) == true)
-    //    {
-    //        if (FruitPool.ContainsKey(itemName))
+    //      if (FruitPool.ContainsKey(itemName))
     //        {
     //            return FruitPool[itemName].Dequeue();
     //        }
-    //    }
-    //    else
-    //    {
+    //    
+    //  
+
+    //    return null;
+    //}
+
+    //public GameObject GetItemInPool(string itemName, int UID)
+    //{
+    //    //(Clone)날리는 부분 필요
+
+    //    
+    //    
     //        if (EquipmentPool.ContainsKey(itemName))
     //        {
     //            if (EquipmentPool[itemName].ContainsKey(UID))
@@ -104,9 +110,7 @@ public class ItemPoolmanger : Singleton<ItemPoolmanger>
     //                return EquipmentPool[itemName][UID];
     //            }
     //        }
-    //    }
-
-        
+    //    
 
     //    return null;
     //}
@@ -126,5 +130,14 @@ public class ItemPoolmanger : Singleton<ItemPoolmanger>
         }
     }
 
-    
+    public void ReturnFruitInPool(GameObject item)
+    {
+        string itemName = DataManager.Instance.RemoveTextAfterParenthesis(item.name);
+
+        if(FruitPool.ContainsKey(itemName))
+        {
+            FruitPool[itemName].Enqueue(item);
+            item.SetActive(false);
+        }
+    }
 }
