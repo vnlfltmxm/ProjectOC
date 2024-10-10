@@ -14,11 +14,11 @@ public class BoltCutter : MonoBehaviour
             }
             if(other.TryGetComponent(out FruitTree ft))
             {
-                ft.RipFruit();
+                ft.OnRipped();
             }
             else
             {
-                Debug.LogError("°úÀÏ³ª¹«¶û Á¢ÃËÇÏÁö ¾ÊÀ½");
+                Debug.LogError("ê³¼ì¼ë‚˜ë¬´ë‘ ì ‘ì´‰í•˜ì§€ ì•ŠìŒ");
             }
         }
     }

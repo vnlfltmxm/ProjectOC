@@ -23,7 +23,6 @@ public class MapManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            FruitTree.callbackCount = 0;
             EventManager.Instance.InvokeEventHanler("OnStartStage");
         }
     }
@@ -35,7 +34,7 @@ public class MapManager : MonoBehaviour
 
     private void SetTerrainData()
     {
-        Debug.Log("¸Ê¸Å´ÏÀú ¿Â ½ºÅ¸Æ® ½ºÅ×ÀÌÁö");
+        Debug.Log("ë§µë§¤ë‹ˆì € ì˜¨ ìŠ¤íƒ€íŠ¸ ìŠ¤í…Œì´ì§€");
         List<int> indexes = new List<int>();
         Vector3 tempPos = new Vector3(0, 2.02f, 0);
         foreach (Transform z in zones)
